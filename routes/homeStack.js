@@ -6,13 +6,27 @@ import ReviewDetails from '../screens/reviewDetails';
 const screens = {
     
      Home:  {
-         screen: Home
+         screen: Home,
+         navigationOptions:{
+            title : "Movie Review Center"
+         }
+      
      },
      ReviewDetails: {
-        screen: ReviewDetails
+        screen: ReviewDetails,
+        navigationOptions:{
+            title: "Review Details"
+         }
+     
     },
 }
 
-const HomeStack = createStackNavigator(screens);
+const HomeStack = createStackNavigator(screens, {
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: 'coral'
+        }
+    }
+});
 
 export default createAppContainer(HomeStack);
