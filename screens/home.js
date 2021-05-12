@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import { Card, Title, Paragraph } from "react-native-paper";
 import globalStyles from "../styles/globalStyles";
 
 export default function Home({ navigation }) {
@@ -21,15 +22,26 @@ export default function Home({ navigation }) {
   //    navigation.navigate('ReviewDetails', review)
   // };
   return (
-    <View style={globalStyles.container}>
+    <View>
       <Text>Home Screen </Text>
+   
       {/* <Button title='go to review details screen' onPress={pressHandler}/> */}
 
       <FlatList
         data={reviews}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item)}>
-            <Text>{item.title}</Text>
+          <TouchableOpacity>
+            {/* <Text>{item.title}</Text> */}
+            <Card
+              elevation={50}
+              onPress={() => navigation.navigate("ReviewDetails", item)}
+            >
+                
+              <Card.Content>
+                <Title>{item.title}</Title>
+                <Paragraph>{item.body}</Paragraph>
+              </Card.Content>
+            </Card>
           </TouchableOpacity>
         )}
       />
